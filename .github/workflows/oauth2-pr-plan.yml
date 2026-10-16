@@ -22,7 +22,7 @@ jobs:
           case "$GITHUB_REF_NAME" in develop|staging|production) ;; *) exit 1 ;; esac
       - name: Create review GitHub App token
         id: app-token
-        uses: actions/create-github-app-token@bcd2ba49218906704ab6c1aa796996da409d3eb1 # v3.2.0
+        uses: actions/create-github-app-token@64ab729a6294000f5aa4a4bc0b73d1f32bc45510 # v3.3.0
         with:
           app-id: ${{ vars.OAUTH2_REVIEW_APP_ID }}
           private-key: ${{ secrets.OAUTH2_REVIEW_APP_PRIVATE_KEY }}
@@ -32,7 +32,7 @@ jobs:
           permission-pull-requests: read
           permission-members: read
       - name: Checkout trusted workflow source
-        uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:
           persist-credentials: false
       - name: Verify approvals
